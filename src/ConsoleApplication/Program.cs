@@ -19,9 +19,19 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            //List<Train> trenes = new List<Train>();
+            for (int i = 0; i<30000; i++)
+            {
+                string name = "Tren" + i.ToString();
+                //trenes = trenes(new Train(name));
+                new Train(name);
+                Console.WriteLine(Train.getNumeroTrenesPrint());
+            }
+            Train t1 = new Train("Last train to London");
+            Train t2 = new Train("Last train to London");
+            Train t3 = new Train("Runaway Train");
+            Console.WriteLine($"t1 == t2: {t1 == t2} t2 == t3 {t2 == t3}");
+            //Ambas dan falso ya que son tres objetos diferentes, a pesar de que t1 y t2 tengan el mismo estado.
         }
     }
 }

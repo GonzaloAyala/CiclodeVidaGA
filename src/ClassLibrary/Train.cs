@@ -13,6 +13,35 @@ namespace ClassLibrary
     /// </summary>
     public class Train
     {
+        private static int NumeroTrenes{get; set;}
+        
+        public static string getNumeroTrenesPrint()
+        {
+            return $"Hay {Train.NumeroTrenes} trenes en total.";
+        }
+
+        public static int getNumeroTrenes()
+        {
+            return Train.NumeroTrenes;
+        }
+        
+        private string Id {get; set;}
+
+        public string getName()
+        {
+            return this.Id;
+        }
+        ~Train()
+        {
+            Console.WriteLine($"Mataron a  {this.Id}.");
+            Train.NumeroTrenes -= 1;
+        }
+
+        public Train(string id)
+        {
+            this.Id = id;
+            Train.NumeroTrenes += 1;
+        }
         /// <summary>
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
